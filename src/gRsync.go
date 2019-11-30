@@ -6,7 +6,7 @@ import (
 )
 
 func doSync(address string, srcDir string) error {
-	srcPath := "rsync://" + address + ":8765/test/steamapps/common/" + srcDir
+	srcPath := "'rsync://" + address + ":8765/test/steamapps/common/" + srcDir + "'"
 	var cmd = exec.Command("rsync", "-vzrhtopg", "--progress", "--delete", "--bwlimit=4000", srcPath, "/cygdrive/e/SteamLibrary/steamapps/common")
 	var outBuf bytes.Buffer
 	cmd.Stdout = &outBuf
@@ -22,6 +22,6 @@ func doSync(address string, srcDir string) error {
 }
 
 func main() {
-	err := doSync("10.0.1.210", "TheLongDark")
+	err := doSync("10.0.1.210", "a")
 	println("error: ", err)
 }

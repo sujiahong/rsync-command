@@ -44,7 +44,7 @@ func fileLock(f *os.File) {
 		fmt.Println("22222  err == ", err)
 		return
 	}
-	r1, r2, err := syscall.Syscall6(addr, 5, f.Fd(), 0, 0, 0, 1, 0)
+	r1, r2, err := syscall.Syscall6(addr, 5, f.Fd(), 3, 0, 1, 0, 0)
 	fmt.Println("rrr == ", r1, r2, err)
 }
 
@@ -74,14 +74,14 @@ func main() {
 	}
 	fileLock(f)
 	//fileLock(f)
-	fileUnlock(f)
+	//fileUnlock(f)
 	go func() {
 		f, err := os.Open("../file.lock")
 		if err != nil {
 			fmt.Println("eee: ", err)
 			return
 		}
-		var buf = make([]byte, 5)
+		var buf = make([]byte, 2)
 		n, err := f.Read(buf)
 		fmt.Println("n == ", n, err, buf)
 	}()

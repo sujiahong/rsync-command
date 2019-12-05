@@ -1,6 +1,6 @@
 import os, time
 
-ret = os.system("rsync -vzrhtopg --progress --delete --bwlimit=2000 'rsync://10.0.1.210:8765/test/steamapps/common/HatinTime' /cygdrive/e/SteamLibrary/steamapps/common")
+ret = os.system("rsync -vzrhtopg --progress --delete --bwlimit=2000 'rsync://10.0.1.210:8765/SteamLibrary/steamapps/common/Mafia III' /cygdrive/e/SteamLibrary/steamapps/common")
 print("J=======  ", ret)
 
 
